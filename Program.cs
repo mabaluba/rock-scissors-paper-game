@@ -21,12 +21,11 @@ namespace rock_scissors_paper_game
             // valid names:  scissor, paper, rock, lizard, spock
             // valid return:  "Player 1 won!", "Player 2 won!", "Draw!", "Oh, Unknown Thing"
 
-            //player1 = player1.ToLower();
-            //player2 = player2.ToLower();
+            //player1 = player1.ToLower() ?? "";
+            //player2 = player2.ToLower() ?? "";
 
-            (player1, player2) = (player1.ToLower(),player2.ToLower());
-            
-            return (player1, player2) switch
+            //(player1, player2) = (player1.ToLower(),player2.ToLower());
+            return (player1.ToLower(), player2.ToLower()) switch
             {
                 ("scissor", "paper") => "Player 1 won!",
                 ("scissor", "lizard") => "Player 1 won!",
@@ -53,7 +52,7 @@ namespace rock_scissors_paper_game
                 ("rock", "rock") => "Draw!",
                 ("lizard", "lizard") => "Draw!",
                 ("spock", "spock") => "Draw!",
-                (_, _) => "Oh, Unknown Thing"
+                (_, _) => "Oh, Unknown Thing",
             };
         }
     }
@@ -61,7 +60,8 @@ namespace rock_scissors_paper_game
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Kata.RPSLP("Scissor", "scissor"));
+            Console.WriteLine(Kata.RPSLP("spock", "spock"));
+            Console.WriteLine(Kata.RPSLP(null, ""));
         }
     }
 }
