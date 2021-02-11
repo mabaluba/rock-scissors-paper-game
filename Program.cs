@@ -25,6 +25,9 @@ namespace rock_scissors_paper_game
             //player2 = player2.ToLower() ?? "";
 
             //(player1, player2) = (player1.ToLower(),player2.ToLower());
+
+            (player1, player2) = (player1 ?? "", player2 ?? "");
+
             return (player1.ToLower(), player2.ToLower()) switch
             {
                 ("scissor", "paper") => "Player 1 won!",
@@ -62,6 +65,7 @@ namespace rock_scissors_paper_game
         {
             Console.WriteLine(Kata.RPSLP("spock", "spock"));
             Console.WriteLine(Kata.RPSLP(null, ""));
+            Console.WriteLine(Kata.RPSLP("", null));
         }
     }
 }
