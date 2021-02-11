@@ -20,8 +20,11 @@ namespace rock_scissors_paper_game
         {
             // valid names:  scissor, paper, rock, lizard, spock
             // valid return:  "Player 1 won!", "Player 2 won!", "Draw!", "Oh, Unknown Thing"
-            player1 = player1.ToLower();
-            player2 = player2.ToLower();
+
+            //player1 = player1.ToLower();
+            //player2 = player2.ToLower();
+
+            (player1, player2) = (player1.ToLower(),player2.ToLower());
             
             return (player1, player2) switch
             {
