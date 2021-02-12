@@ -22,15 +22,15 @@ namespace rock_scissors_paper_game
 
             (player1, player2) = (player1 ?? "", player2 ?? "");//check null
 
-            //object call;
+            var n = variants[player1].Contains(player2);
             //return (player1.ToLower(), player2.ToLower()) switch
-            return   (new object()) switch //(call)
-                        {
-                            variants[player1].Contains(player2) => "Player 1 won!",
-                            !variants[player1].Contains(player2) => "Player 1 won!",
-                            _ => "Oh, Unknown Thing"
+             switch (new object())
+            {
+                case variants[player1].Contains(player2): return "Player 1 won!";
+                case !variants[player1].Contains(player2): return "Player 2 won!";
+                default: "Oh, Unknown Thing";
                    
-                        };
+            }
         }
     }
     public class Program
