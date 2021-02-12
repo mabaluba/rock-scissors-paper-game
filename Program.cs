@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 
 namespace rock_scissors_paper_game
@@ -20,35 +21,16 @@ namespace rock_scissors_paper_game
 
 
             (player1, player2) = (player1 ?? "", player2 ?? "");//check null
-            return (player1.ToLower(), player2.ToLower()) switch
-            {
-                //("scissor", "paper") => "Player 1 won!",
-                //("scissor", "lizard") => "Player 1 won!",
-                //("scissor", "rock") => "Player 2 won!",
-                //("scissor", "spock") => "Player 2 won!",
-                //("paper", "rock") => "Player 1 won!",
-                //("paper", "spock") => "Player 1 won!",
-                //("paper", "lizard") => "Player 2 won!",
-                //("paper", "scissor") => "Player 2 won!",
-                //("rock", "lizard") => "Player 1 won!",
-                //("rock", "spock") => "Player 2 won!",
-                //("rock", "paper") => "Player 2 won!",
-                //("rock", "scissor") => "Player 1 won!",
-                //("lizard", "paper") => "Player 1 won!",
-                //("lizard", "scissor") => "Player 2 won!",
-                //("lizard", "rock") => "Player 2 won!",
-                //("lizard", "spock") => "Player 1 won!",
-                //("spock", "paper") => "Player 2 won!",
-                //("spock", "scissor") => "Player 1 won!",
-                //("spock", "rock") => "Player 1 won!",
-                //("spock", "lizard") => "Player 2 won!",
-                //("scissor", "scissor") => "Draw!",
-                //("paper", "paper") => "Draw!",
-                //("rock", "rock") => "Draw!",
-                //("lizard", "lizard") => "Draw!",
-                //("spock", "spock") => "Draw!",
-                //(_, _) => "Oh, Unknown Thing",
-            };
+
+            //object call;
+            //return (player1.ToLower(), player2.ToLower()) switch
+            return   (new object()) switch //(call)
+                        {
+                            variants[player1].Contains(player2) => "Player 1 won!",
+                            !variants[player1].Contains(player2) => "Player 1 won!",
+                            _ => "Oh, Unknown Thing"
+                   
+                        };
         }
     }
     public class Program
