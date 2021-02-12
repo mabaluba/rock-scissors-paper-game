@@ -17,20 +17,16 @@ namespace rock_scissors_paper_game
                 { "lizard", new[] { "spock", "paper" } },
                 { "spock", new[] { "rock", "scissor" } },
             };
+            if ((player1, player2) == (null, null)) return "Oh, Unknown Thing";
+            else if (player1.ToLower() == player2.ToLower()) return "Draw!";
+            else if (variants[player1].Contains(player2)) return "Player 1 won!";
+            else return "Player 2 won!";
             
+            //(player1, player2) = (player1.ToLower() ?? "", player2.ToLower() ?? "");//check null
 
+                //var n = variants[player1].Contains(player2);
+                //return (player1.ToLower(), player2.ToLower()) 
 
-            (player1, player2) = (player1 ?? "", player2 ?? "");//check null
-
-            var n = variants[player1].Contains(player2);
-            //return (player1.ToLower(), player2.ToLower()) switch
-             switch (new object())
-            {
-                case variants[player1].Contains(player2): return "Player 1 won!";
-                case !variants[player1].Contains(player2): return "Player 2 won!";
-                default: "Oh, Unknown Thing";
-                   
-            }
         }
     }
     public class Program
@@ -38,6 +34,7 @@ namespace rock_scissors_paper_game
         static void Main(string[] args)
         {
             Console.WriteLine(Kata.RPSLP("spock", "spock"));
+            Console.WriteLine(Kata.RPSLP("spock", "paper"));
             Console.WriteLine(Kata.RPSLP(null, ""));
             Console.WriteLine(Kata.RPSLP("", null));
         }
