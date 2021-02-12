@@ -26,8 +26,10 @@ namespace rock_scissors_paper_game
 
             //(player1, player2) = (player1.ToLower(),player2.ToLower());
 
-            (player1, player2) = (player1 ?? "", player2 ?? "");
-
+            //player1 ??= "";
+            //player2 ??= "";
+            
+            //(player1, player2) = (player1 ?? "", player2 ?? "");
             return (player1.ToLower(), player2.ToLower()) switch
             {
                 ("scissor", "paper") => "Player 1 won!",
