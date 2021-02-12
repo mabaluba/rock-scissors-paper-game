@@ -17,7 +17,8 @@ namespace rock_scissors_paper_game
                 { "lizard", new[] { "spock", "paper" } },
                 { "spock", new[] { "rock", "scissor" } },
             };
-            if ((player1, player2) == (null, null)) return "Oh, Unknown Thing";
+            
+            if ((player1==null ||player2== null)) return "Oh, Unknown Thing";
             else if (player1.ToLower() == player2.ToLower()) return "Draw!";
             else if (variants[player1].Contains(player2)) return "Player 1 won!";
             else return "Player 2 won!";
